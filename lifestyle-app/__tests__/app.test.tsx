@@ -7,11 +7,14 @@ describe('Player', () => {
     player = new Player('Eric');
   });
 
-  test('creates players name', () => { // Test #1
+  /*1*/test('creates players name', () => {
     expect(player.name).toEqual("Eric");
   });
-  test('player spawns with 20 inventory slots total', () => { // Test #2
+  /*2*/test('player spawns with 20 inventory slots total', () => {
     expect(player.inventory.length).toEqual(15);
     expect(player.hotBar.length).toEqual(5);
+  });
+  /*3*/test('checks inventory space', () => {
+    expect(player.inventorySpace()).toBe(20);
   });
 });

@@ -26,4 +26,17 @@ export class Player {
       this.inventory.push(slot);
     }
   }
+
+  inventorySpace(): number {
+    let slotsFree = 0;
+    for(let i = 0; i < this.inventory.length; i++) {
+      if(typeof this.inventory[i] === 'object' && Object.keys(this.inventory[i].holds).length === 0) {
+        slotsFree += 1;
+      }
+      if(typeof this.hotBar[i] === 'object' && Object.keys(this.hotBar[i].holds).length === 0) {
+        slotsFree += 1;
+      }
+    }
+    return slotsFree === 0 ? -1 : slotsFree
+  }
 }
