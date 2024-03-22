@@ -18,11 +18,11 @@ export class Player {
     this.inventory = [];
 
     for(let i = 0; i < 5; i++) { // Loop 5x
-      const slot = new InventorySlot('hot_bar');
+      const slot = new InventorySlot(`hot_bar_${i}`);
       this.hotBar.push(slot);
     }
     for(let i = 0; i < 15; i++) { // Loop 15x
-      const slot = new InventorySlot('starting_slot');
+      const slot = new InventorySlot(`starting_slot_${i}`);
       this.inventory.push(slot);
     }
     this.animals = [new Dog('Zeus')];
@@ -60,6 +60,18 @@ export class Player {
     }
     return index;
   }
+  consume(index: number): boolean {
+    let itemToRemove: InventorySlot | undefined;
+    index < 5 ? itemToRemove = this.hotBar[index] : itemToRemove = this.inventory[index + 5]
+    if (itemToRemove && itemToRemove.holds) {
+      if (itemToRemove.holds['redeemEgg'] === 'cat') {
+        itemToRemove.holds = {};
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
 
 export class Animal {
@@ -101,3 +113,4 @@ export class Animal {
   }
 }
 export class Dog extends Animal {}
+export class Cat extends Animal {}

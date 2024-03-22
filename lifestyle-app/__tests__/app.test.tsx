@@ -7,29 +7,33 @@ describe('Player', () => {
     player = new Player('Eric');
   });
 
-  /*1*/test('creates players name', () => {
+  /*1*/test('assigns name to player', () => {
     expect(player.name).toEqual("Eric");
   });
-  /*2*/test('player spawns with 20 inventory slots total', () => {
+  /*2*/test('spawn with 20 inventory slots total', () => {
     expect(player.inventory.length).toEqual(15);
     expect(player.hotBar.length).toEqual(5);
   });
   /*3*/test('checks inventory space available', () => {
     expect(player.inventorySpace()).toBe(19);
   });
-  /*4*/test('creates starter animal named Zeus', () => {
+  /*4*/test('spawn with pet dog named Zeus', () => {
     expect(player.animals[0].name).toBe('Zeus');
     expect(player.animals[0] instanceof Dog).toBe(true);
   });
-  /*5*/test('creates player with sword in hot_bar slot #1', () => {
+  /*5*/test('spawn with sword in 1st hot bar slot', () => {
     expect(player.hotBar[0].holds).toEqual({item: 'sword'});
   });
-  /*6*/test('buying an item', () => {
-    const player = new Player('Eric');
+  /*6*/test('buying items', () => {
     player.buy('cat');
     player.buy('wood');
     expect(player.inventory[0].holds).toEqual({"redeemEgg": 'cat'});
     expect(player.inventory[1].holds).toEqual({"item": 'wood'});
+  });
+  /*7*/test('consume items', () => {
+    player.buy('cat');
+    expect(player.consume(5)).toEqual(true);
+    expect(player.inventory[0].holds).toEqual({});
   });
 });
 
