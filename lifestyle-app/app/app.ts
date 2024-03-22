@@ -1,7 +1,6 @@
 export class InventorySlot {
   holds: {[key: string]: any};
   label: string;
-
   constructor(label: string) {
     this.label = label;
     this.holds = {};
@@ -38,5 +37,12 @@ export class Player {
       }
     }
     return slotsFree === 0 ? -1 : slotsFree
+  }
+}
+
+export class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
   }
 }
