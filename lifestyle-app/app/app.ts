@@ -11,10 +11,12 @@ export class Player {
   name: string;
   hotBar: Array<InventorySlot>;
   inventory: Array<InventorySlot>;
+  animals: Array<Animal>;
   constructor(name: string) {
     this.name = name;
     this.hotBar = [];
     this.inventory = [];
+    this.animals = [new Dog('Zeus')];
 
     for(let i = 0; i < 5; i++) { // Loop 5x
       const slot = new InventorySlot('hot_bar');
@@ -78,3 +80,4 @@ export class Animal {
     return this.energy
   }
 }
+export class Dog extends Animal {}

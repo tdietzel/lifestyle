@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { Player, Animal, Dog, Cat } from '../app/app';
+import { Player, Animal } from '../app/app';
 
 describe('Player', () => {
   let player: any;
@@ -16,6 +16,9 @@ describe('Player', () => {
   });
   /*3*/test('checks inventory space available', () => {
     expect(player.inventorySpace()).toBe(20);
+  });
+  /*4*/test('creates starter animal named Zeus', () => {
+    expect(player.animals[0].name === 'Zeus')
   });
 });
 
