@@ -16,7 +16,6 @@ export class Player {
     this.name = name;
     this.hotBar = [];
     this.inventory = [];
-    this.animals = [new Dog('Zeus')];
 
     for(let i = 0; i < 5; i++) { // Loop 5x
       const slot = new InventorySlot('hot_bar');
@@ -26,6 +25,8 @@ export class Player {
       const slot = new InventorySlot('starting_slot');
       this.inventory.push(slot);
     }
+    this.animals = [new Dog('Zeus')];
+    this.hotBar[0].holds = { item: 'sword' };
   }
 
   inventorySpace(): number {

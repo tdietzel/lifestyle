@@ -15,10 +15,13 @@ describe('Player', () => {
     expect(player.hotBar.length).toEqual(5);
   });
   /*3*/test('checks inventory space available', () => {
-    expect(player.inventorySpace()).toBe(20);
+    expect(player.inventorySpace()).toBe(19);
   });
   /*4*/test('creates starter animal named Zeus', () => {
     expect(player.animals[0].name === 'Zeus')
+  });
+  /*5*/test('creates player with sword in hot_bar slot #1', () => {
+    expect(player.hotBar[0].holds).toEqual({item: 'sword'});
   });
 });
 
