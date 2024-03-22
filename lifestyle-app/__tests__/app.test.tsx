@@ -25,4 +25,15 @@ describe('Animal', () => {
     const adam = new Animal(name);
     expect(adam['name']).toEqual(name);
   });
+  /*2*/test('pet moving forward/back/up/down', () => {
+    const pet = new Animal('Adam');
+    pet.walkF(5);
+    expect(pet.positionX).toEqual(5);
+    pet.walkB(10);
+    expect(pet.positionX).toEqual(-5);
+    pet.jump(5);
+    expect(pet.positionY).toEqual(5);
+    pet.fall(5);
+    expect(pet.positionY).toEqual(0);
+  });
 });

@@ -42,7 +42,21 @@ export class Player {
 
 export class Animal {
   name: string;
+  positionX: number = 0;
+  positionY: number = 0;
   constructor(name: string) {
     this.name = name;
+  }
+  walkF(num: number): number {
+    return this.positionX += num;
+  }
+  walkB(num: number): number {
+    return this.positionX -= num;
+  }
+  jump(num: number): number {
+    return this.positionY += num;
+  }
+  fall(num: number): number {
+    return this.positionY -= num;
   }
 }
