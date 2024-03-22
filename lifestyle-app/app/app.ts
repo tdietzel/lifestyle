@@ -43,6 +43,7 @@ export class Player {
 export class Animal {
   name: string;
   health: number = 100;
+  energy: number = 100;
   positionX: number = 0;
   positionY: number = 0;
   constructor(name: string) {
@@ -64,5 +65,16 @@ export class Animal {
     this.health < 91 ? this.health += 10 : this.health;
     this.health > 90 ? this.health = 100 : this.health;
     return this.health
+  }
+  sleep(): number {
+    this.energy = 100;
+    return this.energy
+  }
+  play(): number | string {
+    if (this.energy < 20) {
+      return "Too tired to play!"
+    }
+    this.energy >= 20 ? this.energy -= 20: this.energy;
+    return this.energy
   }
 }

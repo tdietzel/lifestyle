@@ -20,25 +20,39 @@ describe('Player', () => {
 });
 
 describe('Animal', () => {
+  let animal: any;
+  beforeEach(() => {
+    animal = new Animal('Oreo');
+  });
+
   /*1*/test('initializing pet', () => {
     const name = 'Oreo';
-    const adam = new Animal(name);
-    expect(adam['name']).toEqual(name);
+    expect(animal['name']).toEqual(name);
   });
   /*2*/test('pet movements', () => {
-    const pet = new Animal('Oreo');
-    pet.walkF(5);
-    expect(pet.positionX).toEqual(5);
-    pet.walkB(10);
-    expect(pet.positionX).toEqual(-5);
-    pet.jump(5);
-    expect(pet.positionY).toEqual(5);
-    pet.fall(5);
-    expect(pet.positionY).toEqual(0);
+    animal.walkF(5);
+    expect(animal.positionX).toEqual(5);
+    animal.walkB(10);
+    expect(animal.positionX).toEqual(-5);
+    animal.jump(5);
+    expect(animal.positionY).toEqual(5);
+    animal.fall(5);
+    expect(animal.positionY).toEqual(0);
   });
   /*3*/test('eating', () => {
-    const pet = new Animal('Oreo');
-    pet.health = 70;
-    expect(pet.eat()).toBe(80);
+    animal.health = 90;
+    expect(animal.eat()).toBe(100);
+    animal.health = 91;
+    expect(animal.eat()).toBe(100);
+  });
+  /*4*/test('sleeping', () => {
+    animal.energy = 50;
+    expect(animal.sleep()).toEqual(100);
+  });
+  /*5*/test('playing', () => {
+    animal.energy = 19;
+    expect(animal.play()).toEqual("Too tired to play!");
+    animal.energy = 20;
+    expect(animal.play()).toEqual(0);
   });
 });
