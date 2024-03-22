@@ -16,13 +16,12 @@ export class Player {
     this.name = name;
     this.hotBar = [];
     this.inventory = [];
-
     for(let i = 0; i < 5; i++) { // Loop 5x
       const slot = new InventorySlot(`hot_bar_${i}`);
       this.hotBar.push(slot);
     }
     for(let i = 0; i < 15; i++) { // Loop 15x
-      const slot = new InventorySlot(`starting_slot_${i}`);
+      const slot = new InventorySlot(`start_slot_${i}`);
       this.inventory.push(slot);
     }
     this.animals = [new Dog('Zeus')];
@@ -41,6 +40,7 @@ export class Player {
     }
     return slotsFree === 0 ? -1 : slotsFree
   }
+
   buy(item: string): number {
     let emptySlotIndex = () => {
       for (let i = 0; i < this.inventory.length; i++) {
@@ -60,9 +60,10 @@ export class Player {
     }
     return index;
   }
+
   consume(index: number): boolean {
     let itemToRemove: InventorySlot | undefined;
-    index < 5 ? itemToRemove = this.hotBar[index] : itemToRemove = this.inventory[index + 5]
+    index < 5 ? itemToRemove = this.hotBar[index] : itemToRemove = this.inventory[index - 5];
     if (itemToRemove && itemToRemove.holds) {
       if (itemToRemove.holds['redeemEgg'] === 'cat') {
         itemToRemove.holds = {};
@@ -71,7 +72,6 @@ export class Player {
     }
     return false;
   }
-
 }
 
 export class Animal {

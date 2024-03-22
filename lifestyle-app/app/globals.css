@@ -4,4 +4,9 @@
 
 :root {
   text-align: center;
+  color: white;
+  background-color: black;
+}
+button {
+  color: rgb(0, 255, 0);
 }
