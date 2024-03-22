@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { Player, Animal } from '../app/app';
+import { Player, Animal, Dog } from '../app/app';
 
 describe('Player', () => {
   let player: any;
@@ -18,10 +18,18 @@ describe('Player', () => {
     expect(player.inventorySpace()).toBe(19);
   });
   /*4*/test('creates starter animal named Zeus', () => {
-    expect(player.animals[0].name === 'Zeus')
+    expect(player.animals[0].name).toBe('Zeus');
+    expect(player.animals[0] instanceof Dog).toBe(true);
   });
   /*5*/test('creates player with sword in hot_bar slot #1', () => {
     expect(player.hotBar[0].holds).toEqual({item: 'sword'});
+  });
+  /*6*/test('buying an item', () => {
+    const player = new Player('Eric');
+    player.buy('cat');
+    player.buy('wood');
+    expect(player.inventory[0].holds).toEqual({"redeemEgg": 'cat'});
+    expect(player.inventory[1].holds).toEqual({"item": 'wood'});
   });
 });
 

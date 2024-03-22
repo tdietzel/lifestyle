@@ -41,6 +41,25 @@ export class Player {
     }
     return slotsFree === 0 ? -1 : slotsFree
   }
+  buy(item: string): number {
+    let emptySlotIndex = () => {
+      for (let i = 0; i < this.inventory.length; i++) {
+        if (typeof this.inventory[i] === 'object' && Object.keys(this.inventory[i].holds).length === 0) {
+          return i;
+        }
+      }
+      return -1; // inventory full
+    };
+    const index = emptySlotIndex();
+    if (index !== -1) {
+      if (item === 'cat') {
+        this.inventory[index].holds = { "redeemEgg": 'cat' };
+      } else {
+        this.inventory[index].holds = { "item": item };
+      }
+    }
+    return index;
+  }
 }
 
 export class Animal {
