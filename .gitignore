@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+
+# Next.js build directory
+.next/
+
+# TypeScript build output
+out/
+dist/
+*.tsbuildinfo
+
+# Environment variables file
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Log files
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
