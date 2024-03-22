@@ -42,6 +42,7 @@ export class Player {
 
 export class Animal {
   name: string;
+  health: number = 100;
   positionX: number = 0;
   positionY: number = 0;
   constructor(name: string) {
@@ -58,5 +59,10 @@ export class Animal {
   }
   fall(num: number): number {
     return this.positionY -= num;
+  }
+  eat(): number {
+    this.health < 91 ? this.health += 10 : this.health;
+    this.health > 90 ? this.health = 100 : this.health;
+    return this.health
   }
 }

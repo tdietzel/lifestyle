@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { Player, Animal } from '../app/app';
+import { Player, Animal, Dog, Cat } from '../app/app';
 
 describe('Player', () => {
   let player: any;
@@ -14,7 +14,7 @@ describe('Player', () => {
     expect(player.inventory.length).toEqual(15);
     expect(player.hotBar.length).toEqual(5);
   });
-  /*3*/test('checks inventory space', () => {
+  /*3*/test('checks inventory space available', () => {
     expect(player.inventorySpace()).toBe(20);
   });
 });
@@ -25,8 +25,8 @@ describe('Animal', () => {
     const adam = new Animal(name);
     expect(adam['name']).toEqual(name);
   });
-  /*2*/test('pet moving forward/back/up/down', () => {
-    const pet = new Animal('Adam');
+  /*2*/test('pet movements', () => {
+    const pet = new Animal('Oreo');
     pet.walkF(5);
     expect(pet.positionX).toEqual(5);
     pet.walkB(10);
@@ -35,5 +35,10 @@ describe('Animal', () => {
     expect(pet.positionY).toEqual(5);
     pet.fall(5);
     expect(pet.positionY).toEqual(0);
+  });
+  /*3*/test('eating', () => {
+    const pet = new Animal('Oreo');
+    pet.health = 70;
+    expect(pet.eat()).toBe(80);
   });
 });
