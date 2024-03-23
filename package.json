@@ -11,7 +11,6 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@testing-library/user-event": "^14.5.2",
     "@zeit/next-typescript": "^1.1.1",
@@ -25,6 +24,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.4",
+    "@testing-library/jest-dom": "^6.4.2",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
