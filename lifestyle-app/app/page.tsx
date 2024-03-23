@@ -1,26 +1,25 @@
-"use client";
-import React, { useState } from 'react';
-import { Player } from './app';
+// import React, { useState, ChangeEvent, FormEvent } from 'react';
+// import { Player } from './app';
 
-function Home() {
-  const [player, setPlayer] = useState<Player | null>(null);
-  const [playerName, setPlayerName] = useState('');
+const Index = () => {
+  // const [player, setPlayer] = useState<Player | null>(null);
+  // const [playerName, setPlayerName] = useState('');
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPlayerName(event.target.value);
-  };
+  // const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setPlayerName(event.target.value);
+  // };
 
-  const createPlayer = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const newPlayer = new Player(playerName);
-    setPlayerName('');
-    setPlayer(newPlayer);
-  };
+  // const createPlayer = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const newPlayer = new Player(playerName);
+  //   setPlayer(newPlayer);
+  //   setPlayerName('');
+  // };
 
   return (
     <>
-      <div>
+    Test Page to check workflow...
+      {/* <div>
         <h1>Hello</h1>
         <form onSubmit={createPlayer}>
           <label>
@@ -39,30 +38,31 @@ function Home() {
       <div>
         {player ? (
           <>
-            <hr style={{marginTop:'3rem'}}/>
+            <hr style={{ marginTop: '3rem' }} />
             <div>
               Pets
               {player.animals.map((animal, index) => (
                 <h1 key={index}>{animal.name}</h1>
               ))}
             </div>
-            <hr style={{marginBottom:'3rem'}}/>
+            <hr style={{ marginBottom: '3rem' }} />
             <div>
               Hot Bar
               {player.hotBar.map((slot, index) => (
                 <h1 key={index}>{slot.label}</h1>
               ))}
-              <hr style={{marginBottom:'3rem'}}/>
+              <hr style={{ marginBottom: '3rem' }} />
               Inventory
               {player.inventory.map((slot, index) => (
                 <h1 key={index}>{slot.label}</h1>
               ))}
             </div>
-            <hr style={{marginTop:'3rem'}}/>
+            <hr style={{ marginTop: '3rem' }} />
           </>
         ) : null}
-      </div>
+      </div> */}
     </>
   );
-}
-export default Home;
+};
+
+export default Index;
